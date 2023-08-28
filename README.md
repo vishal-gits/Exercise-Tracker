@@ -1,6 +1,6 @@
 # Exercise Tracker
 
---Completed Project Link : https://exercise-tracker.vishal-gits.repl.co/
+--Completed Project Link : https://exercise-tracker-1.vishal-gits.repl.co/
 
 --This is the boilerplate for the Exercise Tracker project.
 Build a full stack JavaScript app that is functionally similar to this: https://exercise-tracker.freecodecamp.rocks.
