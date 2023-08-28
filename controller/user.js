@@ -92,7 +92,7 @@ export const getLogs = (req, res) => {
     }).populate({
       path: "log",
       select: "description duration date -_id",
-      limit: limit,
+      // limit: limit,
 
       // match: { date: { $gte: from } },
     });
@@ -106,19 +106,23 @@ export const getLogs = (req, res) => {
     logFilter = user.log.filter((elem) => {
       if (from && to) {
         console.log("p1");
-        return elem.date >= new Date(from) && elem.date <= new Date(to);
+        return elem.date >= new Date(from) && elem.date < new Date(to);
       } else if (from) {
         console.log("p2");
         return elem.date >= new Date(from);
       } else if (to) {
         console.log("p3");
-        return elem.date <= new Date(to);
+        return elem.date < new Date(to);
       } else if (!from & !to) {
         return elem;
       }
     });
 
     console.log(logFilter);
+
+    if (limit) {
+      logFilter.splice(limit);
+    }
 
     let logData = logFilter.map((elem) => {
       return {
